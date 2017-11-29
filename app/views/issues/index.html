@@ -6,11 +6,24 @@
 
 <section class="issue-list">
   <div class="issue-list__header">
+    <span>
+      <a href="/issues?is=all" data-test-all-fiter>
+        All Issues
+      </a> |
+      <a href="/issues?is=open" data-test-open-fiter>
+      Open Issues
+    </a> |
+    <a href="/issues?is=closed" data-test-closed-fiter>
+      Closed Issues
+    </a>
+    </span>
   </div>
+ 
   <ul>
   {{#each issues}}
     <li class="issue-item">
       <a href="/issues/{{id}}" class="issue-item__link">
+
         {{title}}
       </a>
     </li>
