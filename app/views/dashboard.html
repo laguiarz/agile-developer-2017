@@ -10,4 +10,14 @@
       {{openIssuesCount}} open issues
     </div>
   </div>
+
+    <div class="dashboard__panel">
+     <span>
+      {{>gauge percentage=lowSeverityPercentage class="low" title="Low"}}
+      {{>gauge percentage=mediumSeverityPercentage class="medium" title="Medium"}}
+      {{>gauge percentage=highSeverityPercentage class="high" title="High"}}
+      </span>
+    </div>
+
+  </span>
 </section>
