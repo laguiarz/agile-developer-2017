@@ -24,7 +24,7 @@ describe('Dashboard', function() {
         cy.get('[data-test-open-issue-count]').should('contain','3 open issues');
     });
 
-    it('should show severity gauge', function() {
+    it('should show high severity gauge', function() {
         cy.resetDB();
         
         cy.fixture({status:'open', severity:'High'});
@@ -46,4 +46,31 @@ describe('Dashboard', function() {
         cy.dataTest('high-gauge').should('contain','75');
 
     });
+
+    it('should show medium severity gauge', function() {
+        cy.resetDB();
+        
+        cy.fixture({status:'open', severity:'High'});
+        cy.fixture({status:'open',severity:'Medium'});
+        cy.fixture({status:'open',severity:'Medium'});
+        cy.fixture({status:'open',severity:'Medium'});
+
+        cy.visit('/dashboard');
+        cy.dataTest('medium-gauge').should('contain','75');
+
+    });
+
+    it('should show low severity gauge', function() {
+        cy.resetDB();
+        
+        cy.fixture({status:'open', severity:'Low'});
+        cy.fixture({status:'open',severity:'Medium'});
+
+        cy.visit('/dashboard');
+        cy.dataTest('low-gauge').should('contain','50');
+
+         
+
+    });
+
 });
