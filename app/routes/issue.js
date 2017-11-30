@@ -4,7 +4,6 @@ const router = express.Router();
 
 router.get('/', function(req, res) {
   var issues;
-  
   switch(req.query.is) {
     case 'open':
       issues = issueStore.getAllOpen();
@@ -16,7 +15,6 @@ router.get('/', function(req, res) {
       issues = issueStore.getAll();
     break;
   }
-  
   res.render('issues/index', { issues });
 });
 
