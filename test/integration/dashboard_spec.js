@@ -13,3 +13,4 @@ describe('Dashboard', function() {
         cy.get('[data-test-open-issue-count]').should('contain','2 open issues');
       });
 });
+
