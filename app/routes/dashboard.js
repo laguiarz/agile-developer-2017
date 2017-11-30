@@ -4,9 +4,13 @@ const issuesStore = require('../models/issue.store');
 
 
 router.get('/', function(req, res) {
-  const openIssuesCount = issuesStore.getAllOpen().length;
+  const openIssues        = issuesStore.getAllOpen()
+  const openIssuesCount   = openIssues.length;
+  const highSeverityCount = openIssues.filter( issue => issue.severity ==='High').length;
+
   res.render('dashboard', {
-    openIssuesCount: openIssuesCount
+    openIssuesCount: openIssuesCount,
+    highSeverityPercentage: highSeverityCount/openIssuesCount
   });
 });
 
